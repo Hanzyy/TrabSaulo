@@ -185,15 +185,20 @@ class SinglyLinkedListIterator:  # LinkedList
             print(curr.data)
             curr = curr.getNextNode()
 
+    def printLista(Lista):
+        currentNode = Lista.firstNode
+        while currentNode:
+            print(currentNode.data)
+            currentNode = currentNode.nextNode
 
 if __name__ == '__main__':
 
-    # def printLista2(Lista):
-    #     currentNode = Lista.firstNode
-    #     while currentNode:
-    #         print(currentNode.data)
-    #         currentNode = currentNode.getNextNode()
-    #         #currentNode = currentNode.nextNode
+    def printLista2(Lista):
+        currentNode = Lista.firstNode
+        while currentNode:
+            print(currentNode.data)
+            currentNode = currentNode.getNextNode()
+            currentNode = currentNode.nextNode
 
 
     novo_noh = ListNode(5)
