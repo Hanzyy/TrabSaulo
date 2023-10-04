@@ -71,7 +71,7 @@ class ArrayQueue:
     def enqueue(self, e): # enfileirar
         """Add an element to the back of queue."""
         if self._size == len(self._data):
-            self._resize(2 * len(self.data))     # double the array size
+            self._resize(2 * len(self._data))     # double the array size
         if(self._size == 0):  # fila vazia
             self._data[0] = e
             self._first = 0 # o primeiro elemento esta na posicao zero
@@ -94,4 +94,12 @@ class ArrayQueue:
             walk = (1 + walk) % len(old)         # use old size as modulus
         self._first = 0                        # front has been realigned
 
-
+    def printFila(q):  # queue fila
+        copia = ArrayQueue()  # instaciou fila auxiliar
+        # loop na fila q
+        while not q.is_empty():
+            print(q.first())
+            copia.enqueue(q.dequeue())
+        # loop na  copia
+        while not copia.is_empty():
+            q.enqueue(copia.dequeue())

@@ -37,6 +37,8 @@ def rodoviasCidade(nomeCidade, lstRodovias):
 
 
 
+
+
 if __name__ == '__main__':
 
 
@@ -72,3 +74,11 @@ if __name__ == '__main__':
     rodo = rodoviasCidade("Vitória", listaRodovias)
     rodo.printLista()
 
+
+    asfaltar = Manutencao("BR-101", "10/10/2023", "Asfaltar")
+    pavimentar = Manutencao("Rodovia do Sol", "05/03/2024", "Pavimentar")
+    fila = ArrayQueue()
+
+    fila.enqueue(asfaltar)
+    fila.enqueue(pavimentar)
+    fila.printFila()
