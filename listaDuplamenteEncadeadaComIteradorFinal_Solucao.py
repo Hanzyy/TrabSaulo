@@ -15,6 +15,19 @@ class DoublyLinkedListIterator:
         else:
             self.size = 0
 
+    def __str__(self) -> str:
+        a = ""
+        b = self.firstNode
+        while b:
+            a += str(self.firstNode.data)+', '
+            b = b.nextNode
+        a = a.strip(", ")
+        if len(a):
+            return "" + a + ""
+        else:
+            return "[]"
+
+
 
     def addNode(self, data):  # attach or anexar um Node depois do iterador:
         """Pre condicao: Iterador definido
@@ -154,5 +167,3 @@ class DoublyLinkedListIterator:
             print(currentNode.data)
             currentNode = currentNode.nextNode
 
-
-#if __name__ == '__main__':

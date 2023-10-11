@@ -50,7 +50,7 @@ class ArrayStack:
 
   def push(self, e):
     """Add element e to the top of the stack."""
-    self._data.append(e)                  # new item stored at end of list
+    self._data.append(e)
 
   def top(self):
     """Return (but do not remove) the element at the top of the stack.
@@ -58,70 +58,65 @@ class ArrayStack:
     Raise Empty exception if the stack is empty.
     """
     if self.is_empty():
-      #raise Empty('Stack is empty')
       print('pilha vazia')
       return None
     else:
-      return self._data[-1]                 # the last item in the list
+      return self._data[-1]
 
   def pop(self):
-    """Remove and return the element from the top of the stack (i.e., LIFO).
-
-    Raise Empty exception if the stack is empty.
-    """
     if self.is_empty():
-      # raise Empty('Stack is empty')
       print('pilha vazia')
       return None
     else:
-      return self._data.pop()               # remove last item from list
+      return self._data.pop()
 
+  def printStack(self):
+    copia = ArrayStack() # instaciou pilha auxiliar
+    print('[', end="")
+    while(not self.is_empty()): # enquanto a pilha s nao ficar vazia
+        print(self.top(), end=" ") # exibe o elemento do topo da pilha
+        copia.push(self.pop()) # adicionar o elem do topo na pilha auxiliar e desempilhar
+    while(not copia.is_empty()):
+        self.push(copia.pop())
+    copia = None
+    print(']\n')
 
 if __name__ == '__main__':
 
-    def printStack(s):
-        copia = ArrayStack() # instaciou pilha auxiliar
-        print('[', end="")
-        while(not s.is_empty()): # enquanto a pilha s nao ficar vazia
-            print(s.top(), end=" ") # exibe o elemento do topo da pilha
-            copia.push(s.pop()) # adicionar o elem do topo na pilha auxiliar e desempilhar
-        while(not copia.is_empty()):
-            s.push(copia.pop())
-        copia = None
-        print(']\n')
+
 
 
 
 
     S = ArrayStack()                 # contents: [ ]
-    printStack(S)
+    S.printStack()
     print(S.top())
     S.push(5)                        # contents: [5]
-    printStack(S)
+    S.printStack()
     S.push(3)                        # contents: [5, 3]
-    printStack(S)
+    S.printStack()
     print(len(S))                    # contents: [5, 3];    outputs 2
     print(S.pop())                   # contents: [5];       outputs 3
-    printStack(S)
+    S.printStack()
     print(S.is_empty())              # contents: [5];       outputs False
     print(S.pop())                   # contents: [ ];       outputs 5
-    printStack(S)
+    S.printStack()
     print(S.pop())  # contents: [ ];       outputs 5
-    printStack(S)
+    S.printStack()
     print(S.is_empty())              # contents: [ ];       outputs True
     S.push(7)                        # contents: [7]
-    printStack(S)
+    S.printStack()
     S.push(9)                        # contents: [7, 9]
-    printStack(S)
+    S.printStack()
     print(S.top())                   # contents: [7, 9];    outputs 9
-    printStack(S)
+    S.printStack()
     S.push(4)                        # contents: [7, 9, 4]
-    printStack(S)
+    S.printStack()
     print(len(S))                    # contents: [7, 9, 4]; outputs 3
     print(S.pop())                   # contents: [7, 9];    outputs 4
     S.push(6)                        # contents: [7, 9, 6]
-    printStack(S)
+    S.printStack()
     S.push(8)                        # contents: [7, 9, 6, 8]
-    printStack(S)
+    S.printStack()
     print(S.pop())                   # contents: [7, 9, 6]; outputs 8
-    printStack(S)
+    S.printStack()
