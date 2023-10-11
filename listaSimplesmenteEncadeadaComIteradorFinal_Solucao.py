@@ -5,6 +5,8 @@ class ListNode:
         self.data = data
         self.nextNode = nextNode  # None self.antNode = None
 
+
+
     # def getData(self):
     #     return self.data
     #
@@ -29,6 +31,18 @@ class SinglyLinkedListIterator:  # LinkedList
             self.size = 1
         else:
             self.size = 0
+
+    def __str__(self):
+        a = ""
+        b = self.firstNode
+        while b:
+            a += str(b.data)+', '
+            b = b.nextNode
+        a = a.strip(", ")
+        if len(a):
+            return "" + a + ""
+        else:
+            return "[]"
 
     # def getSize(self):
     #     return self.size

@@ -50,9 +50,8 @@ if __name__ == '__main__':
     lst = registrarLista("cidades.txt")
     lst.printLista()
 
-    print(lst.iterator.data.listaCidade.iterator.data)
-    lst.iterator.data.listaCidade.first_Node()
-    print(lst.iterator.data.listaCidade.iterator.data)
+    a = rodoviasCidade("Vila_Velha", lst)
+    print(a)
 
 
     """lstBR101 = DoublyLinkedListIterator()
@@ -85,13 +84,21 @@ if __name__ == '__main__':
     listaRodovias.addNode(objeto3)
 
     rodo = rodoviasCidade("Vitória", listaRodovias)
-    rodo.printLista()
+    rodo.printLista()"""
 
 
     asfaltar = Manutencao("BR-101", "10/10/2023", "Asfaltar")
     pavimentar = Manutencao("Rodovia do Sol", "05/03/2024", "Pavimentar")
     fila = ArrayQueue()
 
-    fila.enqueue(asfaltar)
-    fila.enqueue(pavimentar)
-    fila.printFila()"""
+    programarManutencao(fila, asfaltar)
+    programarManutencao(fila, pavimentar)
+    fila.printFila()
+    print("\n")
+
+    pilha = ArrayStack()
+    registrarHistoricoManutencoes(fila, pilha)
+    fila.printFila()
+    pilha.printStack()
+
+

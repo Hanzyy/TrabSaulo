@@ -1,4 +1,4 @@
 BR-101 Vitória Serra Cariacica
-Rodovia_do_sol VIla_Velha Guarapari Vitória
+Rodovia_do_sol Vila_Velha Guarapari Vitória
 BR-262 Venda_Nova_do_Imigrante Vitória Guaçuí Vila_Velha
 ES-010 Itaúnas Serra Fundão Aracruz Linhares
