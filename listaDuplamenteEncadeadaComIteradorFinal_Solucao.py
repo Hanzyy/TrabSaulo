@@ -15,11 +15,11 @@ class DoublyLinkedListIterator:
         else:
             self.size = 0
 
-    def __str__(self) -> str:
+    def __str__(self):
         a = ""
         b = self.firstNode
         while b:
-            a += str(self.firstNode.data)+', '
+            a += str(b.data)+', '
             b = b.nextNode
         a = a.strip(", ")
         if len(a):

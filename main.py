@@ -32,11 +32,14 @@ def registrarLista(filename):
     rodovias = SinglyLinkedListIterator()
     with open(filename, 'r') as file:
         for linha in file:
-            data = linha.strip().split()
+            data = linha.split()
             nomeRodovia = data[0]
             cidades = DoublyLinkedListIterator()
-            a = data[1:]
-            cidades.addNode(a)
+            i = 1
+            while i < len(data):
+                a = data[i]
+                cidades.addNode(a)
+                i+=1
             rodovia = Objeto(nomeRodovia, cidades)
             rodovias.addNode(rodovia)
     return rodovias
@@ -46,6 +49,11 @@ if __name__ == '__main__':
 
     lst = registrarLista("cidades.txt")
     lst.printLista()
+
+    print(lst.iterator.data.listaCidade.iterator.data)
+    lst.iterator.data.listaCidade.first_Node()
+    print(lst.iterator.data.listaCidade.iterator.data)
+
 
     """lstBR101 = DoublyLinkedListIterator()
     lstBR101.first_Node()
