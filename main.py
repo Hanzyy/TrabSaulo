@@ -7,42 +7,42 @@ from manutencao import Manutencao
 
 
 def rodoviasCidade(nomeCidade, lstRodovias):
-    lstRodovias.first_Node()
-    lst = SinglyLinkedListIterator()
-    while lstRodovias.iterator:
-        lstRodovias.iterator.data.listaCidade.first_Node()
-        while lstRodovias.iterator.data.listaCidade.iterator:
-            if lstRodovias.iterator.data.listaCidade.iterator.data == nomeCidade:
-                lst.addNode(lstRodovias.iterator.data.rodovia)
-            lstRodovias.iterator.data.listaCidade.nextNode()
-        lstRodovias.nextNode()
-    return lst
+    lstRodovias.first_Node()        #Coloca o iterador no primeiro nó
+    lst = SinglyLinkedListIterator()        #Cria uma lista de apoio
+    while lstRodovias.iterator:     #Enquanto tiver elementos na Lista Simplesmente Encadeada
+        lstRodovias.iterator.data.listaCidade.first_Node()      #Pega a data do iterador da lista simplesmente encadeada, que vai para um objeto, onde coloca o iterador da lista duplamente encadeada no primeiro nó
+        while lstRodovias.iterator.data.listaCidade.iterator:       #Enquanto tiver elementos na lista Duplamente Encadeada
+            if lstRodovias.iterator.data.listaCidade.iterator.data == nomeCidade:      #Verifica quais rodovias passam pela cidade
+                lst.addNode(lstRodovias.iterator.data.rodovia)      #Adiciona as cidades à lista de apoio
+            lstRodovias.iterator.data.listaCidade.nextNode()        #Avança para o próximo nó na lista Duplamente Encadeada
+        lstRodovias.nextNode()      #Avança para o próximo nó na lista Simplesmente Encadeada
+    return lst      #Retorna a lista de rodovias que passam por aquela cidade
 
 
 def programarManutencao(fila:ArrayQueue, novaManutencao:Manutencao):
-    fila.enqueue(novaManutencao)
+    fila.enqueue(novaManutencao)    #Adiciona uma manutenção à fila
     return fila
 
 
 def registrarHistoricoManutencoes(fila:ArrayQueue, pilha:ArrayStack):
-    pilha.push(fila.dequeue())
+    pilha.push(fila.dequeue())      #Remove a primeira manutenção e coloca na pilha
     return pilha
 
 def registrarLista(filename):
-    rodovias = SinglyLinkedListIterator()
-    with open(filename, 'r') as file:
+    rodovias = SinglyLinkedListIterator()   # Declara a lista de rodovias
+    with open(filename, 'r') as file:   # Lê o arquivo que guarda as listas
         for linha in file:
-            data = linha.split()
-            nomeRodovia = data[0]
+            data = linha.split()    # Para cada linha no arquivo separa as palavras por espaços
+            nomeRodovia = data[0]   # Designa a primeira palavra da lista para o campo rodovia
             cidades = DoublyLinkedListIterator()
             i = 1
-            while i < len(data):
+            while i < len(data):        # Enquanto o tamanho da variável de apoio i é menor que a posição da data
                 a = data[i]
-                cidades.addNode(a)
+                cidades.addNode(a)      # Adiciona a data a lista cidade
                 i+=1
-            rodovia = Objeto(nomeRodovia, cidades)
-            rodovias.addNode(rodovia)
-    return rodovias
+            rodovia = Objeto(nomeRodovia, cidades)  # Instancia a classe objeto
+            rodovias.addNode(rodovia)       # Adiciona esse objeto na lista de rodovias
+    return rodovias     # retorna rodovias
 
 
 if __name__ == '__main__':
